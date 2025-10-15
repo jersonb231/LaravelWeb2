@@ -9,9 +9,7 @@ use Illuminate\Http\Response;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         //consultar todos los registro que exiten en la tabla categorias
@@ -21,9 +19,6 @@ class CategoriaController extends Controller
         ->paginate(10);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //validar la data que nos envia el cliente de la tabla de categoria
@@ -40,18 +35,13 @@ class CategoriaController extends Controller
         return response()->json($categoria, Response::HTTP_CREATED);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Categoria $categoria)
     {
         //Funcion para Mostar las tablas de categoria
         return $categoria->load('productos');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request,Categoria $categoria)
     {
         //Funcion para la actualizacion de la tabla de Categoria
@@ -66,9 +56,6 @@ class CategoriaController extends Controller
         return reponse()->json($categoria);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Categoria $categoria)
     {
         //Funcion para la eliminacion de una tabla de categoria que se ha creado

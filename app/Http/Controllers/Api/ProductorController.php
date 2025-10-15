@@ -9,9 +9,7 @@ use Illuminate\Http\Response;
 
 class ProductorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         //consultar todos los registro que exiten en la tabla Productos
@@ -21,9 +19,6 @@ class ProductorController extends Controller
         ->paginate(10);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //validar la data que nos envia el cliente
@@ -44,9 +39,6 @@ class ProductorController extends Controller
         return response()->json($producto, Response::HTTP_CREATED);
     }
 
-    /**
-     * Display the specified resource.
-     */
      public function show(Producto $producto) 
     {
     //Funcion para mostar los productos
@@ -54,9 +46,6 @@ class ProductorController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Producto $producto)
     {
         //Funcion para la actualizacion de la tabla de productos
@@ -75,9 +64,6 @@ class ProductorController extends Controller
     return response()->json($producto);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Producto $producto)
     {
     // funcion para eliminar un parametro de la tabla de producto
