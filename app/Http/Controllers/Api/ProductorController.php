@@ -49,6 +49,7 @@ class ProductorController extends Controller
      */
      public function show(Producto $producto) 
     {
+    //Funcion para mostar los productos
     return response()->json($producto);
     }
 
@@ -58,7 +59,7 @@ class ProductorController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        //Funcion para la actualizacion de la tabla de productos
         $data = $request->validate([
         'categoria_id' => 'sometimes|required|exists:categorias,id',
         'nombre' => 'sometimes|required|string|max:255|unique:productos,nombre,' . $producto->id,
@@ -79,11 +80,11 @@ class ProductorController extends Controller
      */
     public function destroy(Producto $producto)
     {
-    // Elimina el producto
-    $producto->delete();
+    // funcion para eliminar un parametro de la tabla de producto
 
-    // Respuesta 204 (sin contenido, exitoso)
+    $producto->delete();
     return response()->json(null, \Illuminate\Http\Response::HTTP_NO_CONTENT);
+
     }
 
 }

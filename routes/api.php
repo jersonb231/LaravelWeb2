@@ -11,13 +11,13 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 */
 //DECLARAR LAS RUTAS DE CATEGORIAS
-//Route::apiResource('ctaegorias'),CategoriaController::class
 
 Route::get('/consultar-todas-categoria',[CategoriaController::class, 'index']);
 Route::get('/consultar-categoria/{categoria}',[CategoriaController::class, 'show']);
 Route::post('/guardar-categoria',[CategoriaController::class, 'store']);
 Route::put('/actualizar-categoria/{categoria}',[CategoriaController::class, 'update']);
 Route::delete('/eliminar-categoria/{categoria}',[CategoriaController::class, 'destroy']);
+
 //DECLARAR LAS RUTAS DE PRODUCTOS
 
 Route::get('/consultar-todas-producto',[ProductorController::class, 'index']);
