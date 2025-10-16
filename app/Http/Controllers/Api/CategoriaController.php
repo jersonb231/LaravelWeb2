@@ -45,15 +45,16 @@ class CategoriaController extends Controller
     public function update(Request $request,Categoria $categoria)
     {
         //Funcion para la actualizacion de la tabla de Categoria
-        $data = $request ->validate([
-            'nombre'=> 'sometimes|required|string|max:255|unique:categorias,nombre', $categoria->id,
-            'descripcion'=> 'nullable|string',
-            'activa'=>'boolean'
-        ]);
+       $data = $request->validate([
+       'nombre' => 'sometimes|required|string|max:255|unique:categorias,nombre,' . $categoria->id,
+       'descripcion' => 'nullable|string',
+       'activa' => 'boolean'
+]);
+
 
         $categoria->update($data);
 
-        return reponse()->json($categoria);
+        return response()->json($categoria);
     }
 
     public function destroy(Categoria $categoria)
